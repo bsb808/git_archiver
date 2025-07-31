@@ -2,9 +2,12 @@ import os
 import requests
 import argparse
 '''
-This script clones all repositories from a Bitbucket workspace.
+This script clones all repositories from a Bitbucket workspace and github personal access token.
 
 It requires a Bitbucket username, an app password, and the workspace name.
+
+* Bitbucket app passwords can be created in your Bitbucket account settings: Settings > Personal settings > App passwords.
+* GitHub personal access tokens can be created in your GitHub account settings: Settings > Developer settings > Personal access tokens.
 
 Usage Example:
 python git_archive_clone.py --username <your_username> --bitbucket-app-password <your_app_password> --github-token <your_github_token> --workspace <your_workspace>
@@ -89,6 +92,7 @@ def clone_repos(repo_list, workspace, provider="bitbucket"):
     # Create directories for mirror and working copy
     MIRROR_DIR = os.path.join(os.getcwd(), f"{workspace}_{provider}", "mirror")
     WORKING_DIR = os.path.join(os.getcwd(), f"{workspace}_{provider}", "working_copy")
+    CURRENT_DIR = os.getcwd()
 
     for dir_path in [MIRROR_DIR, WORKING_DIR]:
         if not os.path.exists(dir_path):
@@ -113,6 +117,7 @@ def clone_repos(repo_list, workspace, provider="bitbucket"):
         # Pull all the branches
         os.system("git pull --all")
 
+    os.chdir(CURRENT_DIR)
     print(f"All repositories from {provider} have been cloned successfully.")
 
 for provider in ["bitbucket", "github"]:
