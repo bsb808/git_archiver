@@ -1,9 +1,11 @@
 
 # git_archiver
 
-This repository includes utilities to make an archival copy of a Bitbucket workspace
+This repository includes utilities to make an archival copy of a Bitbucket workspace and GitHub organization.
 
-The utilities use a Bitbucket [App Password](https://support.atlassian.com/bitbucket-cloud/docs/create-an-app-password/) and a github [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) for API access, so you will need to generate an App Password to pass to the scripts.   Make sure to keep these credentials private; don't put it in the git repo!
+The utilities use a Bitbucket [App Password](https://support.atlassian.com/bitbucket-cloud/docs/create-an-app-password/) and a github [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) for API access, so you will need to generate an App Password to pass to the scripts.  
+
+**Make sure to keep these credentials private; don't put it in the git repo!**
 
 ## git_archive_clone.py
 
